@@ -1,55 +1,30 @@
-**AI-Powered Door Security**
+# AI-Powered Door Security
 
-AI-Powered Door Security is a hardware + software prototype that demonstrates real-time door-security features using a combo of microcontrollers and AI:
+A hardware + software prototype demonstrating real-time door-security workflows using computer vision + microcontrollers.
 
-Weapon detection with YOLOv8 (object detection)
+## Overview
 
-Face detection / recognition with dlib
+This project combines:
 
-Local hardware controls via Arduino Uno (serial) and ESP8266 (Wi-Fi)
+- Weapon/object detection
+- Face detection / recognition
+- Optional voice interaction modules
+- Local hardware control via Arduino UNO + ESP8266 (LED/buzzer/sensors)
 
-Extra sensors: ultrasonic (presence detection), buzzer & LEDs for alerts
+## Getting Started
 
-This repo is a sample/demo to show how edge devices + AI models can work together for door access & alerting. Use it responsibly — it’s a prototype, not a certified security product.
+```bash
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+python Application.py
+```
 
-**🔥 Highlights / What it does**
+## Configuration (Important)
 
-Detects weapons in camera frames using YOLOv8 and raises alerts.
+- Do **not** commit real WiFi credentials, passwords, API keys, private keys, or biometric data.
+- The ESP8266 sketch should use placeholders for WiFi credentials; keep your real values only on your machine.
 
-Runs a face recognition check (dlib) to optionally allow/deny access.
+## GitHub Notes
 
-If threat detected → triggers buzzer/LED and sends signal to Arduino/ESP8266.
-
-Uses ultrasonic sensor to conserve compute (only run camera inference when someone is near).
-
-Supports both serial (USB) and Wi-Fi communication between the AI host and microcontrollers.
-
-**🧰 Tech Stack & Components**
-
-**Software**
-
-Python 3.11+
-
-Ultralytics YOLOv8 (for object / weapon detection)
-
-dlib (face detection / recognition)
-
-OpenCV (video capture + image ops)
-
-PySerial (serial comms to Arduino)
-
-requests / sockets (for ESP8266 HTTP/WebSocket comms)
-
-**Hardware**
-
-Arduino Uno
-
-ESP8266 (e.g. NodeMCU or ESP-01) for Wi-Fi signalling
-
-HC-SR04 Ultrasonic distance sensor
-
-Buzzer (active)
-
-LEDs (status)
-
-Webcam (or Pi Camera) on the AI host machine
+If you have model weights or other large artifacts, store them with Git LFS or publish them as releases instead of committing large binaries directly.

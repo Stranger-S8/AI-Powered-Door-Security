@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Secrets and local data
+.env
+.env.*
+!.env.example
+data/password.txt
+data/face_encodings/
+
+# Generated / large local artifacts
+*.log
+*.rar
+*.zip
+output/
+temp/
+
+# Build artifacts
+build/
+dist/
+*.spec
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
